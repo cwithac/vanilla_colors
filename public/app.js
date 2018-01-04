@@ -1,3 +1,4 @@
+//Global Initial Variables and DOM Access
 let numSquares = 6;
 let colors = generateRandomColors(numSquares);
 const squares = document.querySelectorAll('.square');
@@ -9,16 +10,17 @@ const resetButton = document.querySelector('#reset');
 const easyButton = document.querySelector('#easy-btn');
 const hardButton = document.querySelector('#hard-btn');
 
-rgbDisplay.textContent = selectedColor;
+//SUB HEADER BUTTONS
+resetButton.addEventListener('click', function() {
+  resetGame(numSquares);
+  setupSquares();
+});
 
-resetButton.addEventListener('click', resetGame);
 easyButton.addEventListener('click', function() {
   hardButton.classList.remove('selected');
   easyButton.classList.add('selected');
   numSquares = 3;
-  colors = generateRandomColors(numSquares);
-  selectedColor = pickColor();
-  rgbDisplay.textContent = selectedColor;
+  resetGame(numSquares);
   for (let i = 0; i < squares.length; i++) {
     if (colors[i]) {
       squares[i].style.backgroundColor = colors[i];
@@ -32,16 +34,16 @@ hardButton.addEventListener('click', function() {
   hardButton.classList.add('selected');
   easyButton.classList.remove('selected');
   numSquares = 6;
-  colors = generateRandomColors(numSquares);
-  selectedColor = pickColor();
-  rgbDisplay.textContent = selectedColor;
+  resetGame(numSquares)
   for (let i = 0; i < squares.length; i++) {
       squares[i].style.backgroundColor = colors[i];
       squares[i].style.display = 'block';
   }
 });
 
-const setupSquares = () => {
+//GAME PLAY SQUARES
+const setupSquares = function() {
+  rgbDisplay.textContent = selectedColor;
   //Sets click listeners and conditionals for clicked squares
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
@@ -62,7 +64,7 @@ const setupSquares = () => {
 };
 
 //Changes all squares to clicked color
-const changeColors = (color) => {
+const changeColors = function(color) {
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = color;
   }
@@ -89,9 +91,9 @@ function randomColor() {
   return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 };
 
-function resetGame() {
+//GAME RESET FOR BUTTONS
+function resetGame(numSquares) {
   colors = generateRandomColors(numSquares);
-  setupSquares();
   selectedColor = pickColor();
   rgbDisplay.textContent = selectedColor;
   header[0].style.backgroundColor = '#232323';
@@ -99,4 +101,5 @@ function resetGame() {
   resetButton.textContent = 'New Colors';
 };
 
+//INITIAL LOAD
 setupSquares();
