@@ -47,8 +47,8 @@ const setupSquares = function() {
   //Sets click listeners and conditionals for clicked squares
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
-    squares[i].addEventListener('click', (e) =>{
-      let clickedColor = e.currentTarget.style.backgroundColor;
+    squares[i].addEventListener('click', function(){
+      let clickedColor = this.style.backgroundColor;
       if (clickedColor === selectedColor) {
         messageDisplay.textContent = 'Correct! You Win!';
         changeColors(clickedColor);
@@ -56,7 +56,7 @@ const setupSquares = function() {
         header[0].style.backgroundColor = clickedColor;
         resetButton.textContent = 'Play Again?';
       } else {
-        e.currentTarget.style.backgroundColor = '#232323';
+        this.style.backgroundColor = '#232323';
         messageDisplay.textContent = 'Incorrect, Try Again!';
       }
     });
