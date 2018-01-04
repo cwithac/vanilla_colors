@@ -1,0 +1,23 @@
+{
+  "name": "vanilla_colors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwithac/vanilla_colors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwithac/vanilla_colors/issues"
+  },
+  "homepage": "https://github.com/cwithac/vanilla_colors#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
