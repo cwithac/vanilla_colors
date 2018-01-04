@@ -20,7 +20,7 @@ for (let i = 0; i < squares.length; i++) {
     if (clickedColor === selectedColor) {
       console.log('Correct');
     } else {
-      console.log('Wrong');
+      e.currentTarget.style.backgroundColor = '#232323';
     }
   });
 };
