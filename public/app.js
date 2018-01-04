@@ -1,14 +1,11 @@
-//Global Initial Variables and DOM Access
+//GLOBAL INITIALIZERS
 
-// const square = document.createElement('div');
-// square.setAttribute('class', 'square');
-// console.log(square);
-const squares = [];
-
+let squares = [];
 let numSquares = 6;
 let colors = generateRandomColors(numSquares);
-// const squares = document.querySelectorAll('.square');
 let selectedColor = pickColor();
+
+// DOM ACCESS
 const rgbDisplay = document.getElementById('colorDisplay');
 const messageDisplay = document.querySelector('#message');
 const header = document.getElementsByTagName('header');
@@ -16,8 +13,11 @@ const resetButton = document.querySelector('#reset');
 const easyButton = document.querySelector('#easy-btn');
 const hardButton = document.querySelector('#hard-btn');
 const container = document.getElementById('container');
+const allSquares = document.querySelectorAll('.square');
+let square;
 
-//SUB HEADER BUTTONS
+//HEADER / SUB HEADER BUTTONS and CONTENT
+rgbDisplay.textContent = selectedColor;
 resetButton.addEventListener('click', function() {
   resetGame(numSquares);
   setupSquares();
@@ -28,31 +28,19 @@ easyButton.addEventListener('click', function() {
   easyButton.classList.add('selected');
   numSquares = 3;
   resetGame(numSquares);
-  for (let i = 0; i < squares.length; i++) {
-    if (colors[i]) {
-      squares[i].style.backgroundColor = colors[i];
-    } else {
-      squares[i].style.display = 'none';
-    }
-  }
 });
 
 hardButton.addEventListener('click', function() {
   hardButton.classList.add('selected');
   easyButton.classList.remove('selected');
   numSquares = 6;
-  resetGame(numSquares)
-  for (let i = 0; i < squares.length; i++) {
-      squares[i].style.backgroundColor = colors[i];
-      squares[i].style.display = 'block';
-  }
+  resetGame(numSquares);
 });
 
 //GAME PLAY SQUARES
-const setupSquares = function() {
-  rgbDisplay.textContent = selectedColor;
+const setupSquares = function(numSquares) {
   for (let i = 0; i < numSquares; i++) {
-    const square = document.createElement('div');
+    square = document.createElement('div');
     square.setAttribute('class', 'square');
     squares.push(square);
     container.appendChild(square);
@@ -112,7 +100,12 @@ function resetGame(numSquares) {
   header[0].style.backgroundColor = '#232323';
   messageDisplay.textContent = '';
   resetButton.textContent = 'New Colors';
+  for (let i = 0; i < squares.length; i++) {
+    container.removeChild(squares[i]);
+  }
+  squares = [];
+  setupSquares(numSquares);
 };
 
 //INITIAL LOAD
-setupSquares();
+setupSquares(numSquares);
