@@ -1,7 +1,7 @@
 //GLOBAL INITIALIZERS
 
 let squares = [];
-let numSquares = 6;
+let numSquares = 24;
 let square;
 let clicks = 0;
 let colors = generateRandomColors(numSquares);
@@ -32,7 +32,7 @@ easyButton.addEventListener('click', function() {
   hardButton.classList.remove('selected');
   medButton.classList.remove('selected');
   easyButton.classList.add('selected');
-  numSquares = 3;
+  numSquares = 12;
   resetGame(numSquares);
 });
 
@@ -40,7 +40,7 @@ medButton.addEventListener('click', function() {
   hardButton.classList.remove('selected');
   medButton.classList.add('selected');
   easyButton.classList.remove('selected');
-  numSquares = 6;
+  numSquares = 24;
   resetGame(numSquares);
 });
 
@@ -48,7 +48,7 @@ hardButton.addEventListener('click', function() {
   hardButton.classList.add('selected');
   medButton.classList.remove('selected');
   easyButton.classList.remove('selected');
-  numSquares = 9;
+  numSquares = 36;
   resetGame(numSquares);
 });
 

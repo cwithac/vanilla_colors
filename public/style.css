@@ -31,12 +31,12 @@ nav {
 }
 
 .square {
-  width: 30%;
+  width: 15%;
   /* DEFAULT COLOR */
   background-color: #FFFFFF;
-  padding-bottom: 30%;
+  padding-bottom: 15%;
   float: left;
-  margin: 1.66%;
+  margin: .6%;
 }
 
 .selected {
