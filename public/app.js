@@ -1,4 +1,5 @@
-let colors = generateRandomColors(6);
+let numSquares = 6;
+let colors = generateRandomColors(numSquares);
 const squares = document.querySelectorAll('.square');
 let selectedColor = pickColor();
 const rgbDisplay = document.getElementById('colorDisplay');
@@ -14,7 +15,8 @@ resetButton.addEventListener('click', resetGame);
 easyButton.addEventListener('click', function() {
   hardButton.classList.remove('selected');
   easyButton.classList.add('selected');
-  colors = generateRandomColors(3);
+  numSquares = 3;
+  colors = generateRandomColors(numSquares);
   selectedColor = pickColor();
   rgbDisplay.textContent = selectedColor;
   for (let i = 0; i < squares.length; i++) {
@@ -29,7 +31,8 @@ easyButton.addEventListener('click', function() {
 hardButton.addEventListener('click', function() {
   hardButton.classList.add('selected');
   easyButton.classList.remove('selected');
-  colors = generateRandomColors(6);
+  numSquares = 6;
+  colors = generateRandomColors(numSquares);
   selectedColor = pickColor();
   rgbDisplay.textContent = selectedColor;
   for (let i = 0; i < squares.length; i++) {
@@ -87,7 +90,7 @@ function randomColor() {
 };
 
 function resetGame() {
-  colors = generateRandomColors(6);
+  colors = generateRandomColors(numSquares);
   setupSquares();
   selectedColor = pickColor();
   rgbDisplay.textContent = selectedColor;
