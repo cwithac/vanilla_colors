@@ -8,7 +8,7 @@ const colors = [
 ];
 
 const squares = document.querySelectorAll('.square');
-const selectedColor = colors[4];
+let selectedColor = pickColor();
 const rgbDisplay = document.getElementById('colorDisplay');
 const messageDisplay = document.querySelector('#message');
 
@@ -34,4 +34,10 @@ const changeColors = (color) => {
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = color;
   }
+};
+
+//Color Randomizer, ES5 Scope
+function pickColor() {
+  let random = Math.floor(Math.random() * colors.length);
+  return colors[random];
 };
