@@ -1,7 +1,13 @@
 //Global Initial Variables and DOM Access
+
+// const square = document.createElement('div');
+// square.setAttribute('class', 'square');
+// console.log(square);
+const squares = [];
+
 let numSquares = 6;
 let colors = generateRandomColors(numSquares);
-const squares = document.querySelectorAll('.square');
+// const squares = document.querySelectorAll('.square');
 let selectedColor = pickColor();
 const rgbDisplay = document.getElementById('colorDisplay');
 const messageDisplay = document.querySelector('#message');
@@ -9,6 +15,7 @@ const header = document.getElementsByTagName('header');
 const resetButton = document.querySelector('#reset');
 const easyButton = document.querySelector('#easy-btn');
 const hardButton = document.querySelector('#hard-btn');
+const container = document.getElementById('container');
 
 //SUB HEADER BUTTONS
 resetButton.addEventListener('click', function() {
@@ -44,6 +51,12 @@ hardButton.addEventListener('click', function() {
 //GAME PLAY SQUARES
 const setupSquares = function() {
   rgbDisplay.textContent = selectedColor;
+  for (let i = 0; i < numSquares; i++) {
+    const square = document.createElement('div');
+    square.setAttribute('class', 'square');
+    squares.push(square);
+    container.appendChild(square);
+  }
   //Sets click listeners and conditionals for clicked squares
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
