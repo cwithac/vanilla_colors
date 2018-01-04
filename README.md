@@ -1,4 +1,4 @@
-# RGB Color Guessing Game
+# RGB Color Challenge
 
 [Hosted](https://game-rgb.herokuapp.com/) & [Repository](https://github.com/cwithac/vanilla_colors)
 

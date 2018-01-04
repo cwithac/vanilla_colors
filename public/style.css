@@ -2,7 +2,7 @@ body {
   background-color: #232323;
 }
 
-header, .subheader {
+header {
   color: #FFFFFF;
 }
 
@@ -14,8 +14,15 @@ header, .subheader {
 .square {
   width: 30%;
   /* DEFAULT COLOR */
-  background-color: white;
+  background-color: #FFFFFF;
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
+}
+
+#subheader {
+    background-color: #FFFFFF;
+    height: 30px;
+    text-align: center;
+    color: #232323;
 }
