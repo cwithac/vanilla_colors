@@ -5,10 +5,38 @@ const rgbDisplay = document.getElementById('colorDisplay');
 const messageDisplay = document.querySelector('#message');
 const header = document.getElementsByTagName('header');
 const resetButton = document.querySelector('#reset');
+const easyButton = document.querySelector('#easy-btn');
+const hardButton = document.querySelector('#hard-btn');
 
 rgbDisplay.textContent = selectedColor;
 
 resetButton.addEventListener('click', resetGame);
+easyButton.addEventListener('click', function() {
+  hardButton.classList.remove('selected');
+  easyButton.classList.add('selected');
+  colors = generateRandomColors(3);
+  selectedColor = pickColor();
+  rgbDisplay.textContent = selectedColor;
+  for (let i = 0; i < squares.length; i++) {
+    if (colors[i]) {
+      squares[i].style.backgroundColor = colors[i];
+    } else {
+      squares[i].style.display = 'none';
+    }
+  }
+});
+
+hardButton.addEventListener('click', function() {
+  hardButton.classList.add('selected');
+  easyButton.classList.remove('selected');
+  colors = generateRandomColors(6);
+  selectedColor = pickColor();
+  rgbDisplay.textContent = selectedColor;
+  for (let i = 0; i < squares.length; i++) {
+      squares[i].style.backgroundColor = colors[i];
+      squares[i].style.display = 'block';
+  }
+});
 
 const setupSquares = () => {
   //Sets click listeners and conditionals for clicked squares
