@@ -4,6 +4,7 @@ const squares = document.querySelectorAll('.square');
 let selectedColor = pickColor();
 const rgbDisplay = document.getElementById('colorDisplay');
 const messageDisplay = document.querySelector('#message');
+const header = document.getElementsByTagName('header');
 
 rgbDisplay.textContent = selectedColor;
 
@@ -15,6 +16,8 @@ for (let i = 0; i < squares.length; i++) {
     if (clickedColor === selectedColor) {
       messageDisplay.textContent = 'Correct! You Win!';
       changeColors(clickedColor);
+      //HTML Collection header[0]
+      header[0].style.backgroundColor = clickedColor;
     } else {
       e.currentTarget.style.backgroundColor = '#232323';
       messageDisplay.textContent = 'Incorrect, Try Again!';
