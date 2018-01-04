@@ -6,6 +6,13 @@ header {
   color: #FFFFFF;
 }
 
+nav {
+    background-color: #FFFFFF;
+    height: 30px;
+    text-align: center;
+    color: #232323;
+}
+
 #container {
   max-width: 75%;
   margin: 0 auto;
@@ -18,13 +25,6 @@ header {
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
-}
-
-#subheader {
-    background-color: #FFFFFF;
-    height: 30px;
-    text-align: center;
-    color: #232323;
 }
 
 .selected {
