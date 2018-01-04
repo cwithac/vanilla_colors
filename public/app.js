@@ -68,7 +68,7 @@ const setupSquares = function(numSquares) {
         header[0].style.backgroundColor = clickedColor;
         resetButton.textContent = 'Play Again?';
       } else {
-        this.style.backgroundColor = '#454545';
+        this.style.backgroundColor = '#232323';
         messageDisplay.textContent = 'Incorrect, Try Again!';
       }
     });
