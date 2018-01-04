@@ -14,9 +14,10 @@ const messageDisplay = document.querySelector('#message');
 const clickDisplay = document.querySelector('#clicks');
 const header = document.getElementsByTagName('header');
 const resetButton = document.querySelector('#reset');
-const easyButton = document.querySelector('#easy-btn');
-const medButton = document.querySelector('#med-btn');
-const hardButton = document.querySelector('#hard-btn');
+// const easyButton = document.querySelector('#easy-btn');
+// const medButton = document.querySelector('#med-btn');
+// const hardButton = document.querySelector('#hard-btn');
+const levelButtons = document.querySelectorAll('.level');
 const container = document.getElementById('container');
 const allSquares = document.querySelectorAll('.square');
 
@@ -28,29 +29,22 @@ resetButton.addEventListener('click', function() {
   setupSquares();
 });
 
-easyButton.addEventListener('click', function() {
-  hardButton.classList.remove('selected');
-  medButton.classList.remove('selected');
-  easyButton.classList.add('selected');
-  numSquares = 12;
-  resetGame(numSquares);
-});
-
-medButton.addEventListener('click', function() {
-  hardButton.classList.remove('selected');
-  medButton.classList.add('selected');
-  easyButton.classList.remove('selected');
-  numSquares = 24;
-  resetGame(numSquares);
-});
-
-hardButton.addEventListener('click', function() {
-  hardButton.classList.add('selected');
-  medButton.classList.remove('selected');
-  easyButton.classList.remove('selected');
-  numSquares = 36;
-  resetGame(numSquares);
-});
+for (let i = 0; i < levelButtons.length; i++) {
+  levelButtons[i].addEventListener('click', function(){
+    levelButtons[0].classList.remove('selected');
+    levelButtons[1].classList.remove('selected');
+    levelButtons[2].classList.remove('selected');
+    this.classList.add('selected');
+    if (this.textContent === "Easy") {
+      numSquares = 12;
+    } else if (this.textContent === "Medium") {
+      numSquares = 24;
+    } else {
+      numSquares = 36;
+    }
+    resetGame(numSquares);
+  });
+};
 
 //GAME PLAY SQUARES
 const setupSquares = function(numSquares) {
