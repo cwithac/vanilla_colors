@@ -2,12 +2,16 @@
 
 let squares = [];
 let numSquares = 6;
+let square;
+let clicks = 0;
 let colors = generateRandomColors(numSquares);
 let selectedColor = pickColor();
+let gameOver = false;
 
 // DOM ACCESS
 const rgbDisplay = document.getElementById('colorDisplay');
 const messageDisplay = document.querySelector('#message');
+const clickDisplay = document.querySelector('#clicks');
 const header = document.getElementsByTagName('header');
 const resetButton = document.querySelector('#reset');
 const easyButton = document.querySelector('#easy-btn');
@@ -15,7 +19,7 @@ const medButton = document.querySelector('#med-btn');
 const hardButton = document.querySelector('#hard-btn');
 const container = document.getElementById('container');
 const allSquares = document.querySelectorAll('.square');
-let square;
+
 
 //HEADER / SUB HEADER BUTTONS and CONTENT
 rgbDisplay.textContent = selectedColor;
@@ -60,8 +64,11 @@ const setupSquares = function(numSquares) {
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
     squares[i].addEventListener('click', function(){
+      clickCounter();
+      clickDisplay.textContent = 'Clicks: ' + clicks;
       let clickedColor = this.style.backgroundColor;
       if (clickedColor === selectedColor) {
+        gameOver = true;
         messageDisplay.textContent = 'Correct! You Win!';
         changeColors(clickedColor);
         //HTML Collection header[0]
@@ -103,6 +110,13 @@ function randomColor() {
   return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 };
 
+function clickCounter() {
+  if (!gameOver) {
+    clicks++;
+    return clicks;
+  }
+};
+
 //GAME RESET FOR BUTTONS
 function resetGame(numSquares) {
   colors = generateRandomColors(numSquares);
@@ -115,6 +129,9 @@ function resetGame(numSquares) {
     container.removeChild(squares[i]);
   }
   squares = [];
+  clicks = 0;
+  clickDisplay.textContent = 'Clicks: ' + clicks;
+  gameOver = false;
   setupSquares(numSquares);
 };
 
