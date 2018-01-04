@@ -68,7 +68,7 @@ const setupSquares = function(numSquares) {
         header[0].style.backgroundColor = clickedColor;
         resetButton.textContent = 'Play Again?';
       } else {
-        this.style.backgroundColor = '#232323';
+        this.style.backgroundColor = '#454545';
         messageDisplay.textContent = 'Incorrect, Try Again!';
       }
     });
@@ -108,7 +108,7 @@ function resetGame(numSquares) {
   colors = generateRandomColors(numSquares);
   selectedColor = pickColor();
   rgbDisplay.textContent = selectedColor;
-  header[0].style.backgroundColor = '#232323';
+  header[0].style.backgroundColor = '#454545';
   messageDisplay.textContent = '';
   resetButton.textContent = 'New Colors';
   for (let i = 0; i < squares.length; i++) {
