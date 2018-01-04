@@ -13,7 +13,8 @@ header, .subheader {
 
 .square {
   width: 30%;
-  background-color: red;
+  /* DEFAULT COLOR */
+  background-color: white;
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
