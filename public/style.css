@@ -35,6 +35,7 @@ button {
   color: #232323;
   font-size: inherit;
   transition: all .3s;
+  outline: none;
 }
 
 #reset:hover, #easy-btn:hover, #med-btn:hover, #hard-btn:hover {
@@ -48,33 +49,31 @@ button {
   margin: 5% auto;
 }
 
-.square {
+.square, .disappear {
   width: 15%;
-  /* DEFAULT COLOR */
-  background-color: #FFFFFF;
   padding-bottom: 15%;
   float: left;
   margin: .6%;
   border-radius: 50%;
+}
+
+.square {
+  /* DEFAULT COLOR */
+  background-color: #FFFFFF;
   transition: background 1s;
   -webkit-transition: transition: background 1s;
   -moz-transition: transition: background 1s;
 }
 
-.square:hover {
-  cursor: pointer;
-  box-shadow: 0 0 10px 1px #FFFFFF inset;
-}
-
 .disappear {
-  width: 15%;
-  padding-bottom: 15%;
-  float: left;
-  margin: .6%;
-  border-radius: 50%;
   transition: background .7s;
   -webkit-transition: transition: background .7s;
   -moz-transition: transition: background .7s;
+}
+
+.square:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px 1px #FFFFFF inset;
 }
 
 .selected {
@@ -109,5 +108,19 @@ button {
   }
   button {
     height: 50px;
+  }
+}
+
+@media (min-width: 900px) {
+  .square, .disappear  {
+    width: 10%;
+    padding-bottom: 10%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .square, .disappear  {
+    width: 8%;
+    padding-bottom: 8%;
   }
 }
