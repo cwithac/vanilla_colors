@@ -1,28 +1,33 @@
-const colors = generateRandomColors(6);
-
+let colors = generateRandomColors(6);
 const squares = document.querySelectorAll('.square');
 let selectedColor = pickColor();
 const rgbDisplay = document.getElementById('colorDisplay');
 const messageDisplay = document.querySelector('#message');
 const header = document.getElementsByTagName('header');
+const resetButton = document.querySelector('#reset');
 
 rgbDisplay.textContent = selectedColor;
 
-//Sets click listeners and conditionals for clicked squares
-for (let i = 0; i < squares.length; i++) {
-  squares[i].style.backgroundColor = colors[i];
-  squares[i].addEventListener('click', (e) =>{
-    let clickedColor = e.currentTarget.style.backgroundColor;
-    if (clickedColor === selectedColor) {
-      messageDisplay.textContent = 'Correct! You Win!';
-      changeColors(clickedColor);
-      //HTML Collection header[0]
-      header[0].style.backgroundColor = clickedColor;
-    } else {
-      e.currentTarget.style.backgroundColor = '#232323';
-      messageDisplay.textContent = 'Incorrect, Try Again!';
-    }
-  });
+resetButton.addEventListener('click', resetGame);
+
+const setupSquares = () => {
+  //Sets click listeners and conditionals for clicked squares
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+    squares[i].addEventListener('click', (e) =>{
+      let clickedColor = e.currentTarget.style.backgroundColor;
+      if (clickedColor === selectedColor) {
+        messageDisplay.textContent = 'Correct! You Win!';
+        changeColors(clickedColor);
+        //HTML Collection header[0]
+        header[0].style.backgroundColor = clickedColor;
+        resetButton.textContent = 'Play Again?';
+      } else {
+        e.currentTarget.style.backgroundColor = '#232323';
+        messageDisplay.textContent = 'Incorrect, Try Again!';
+      }
+    });
+  };
 };
 
 //Changes all squares to clicked color
@@ -52,3 +57,15 @@ function randomColor() {
   let b = Math.floor(Math.random() * 256);
   return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 };
+
+function resetGame() {
+  colors = generateRandomColors(6);
+  setupSquares();
+  selectedColor = pickColor();
+  rgbDisplay.textContent = selectedColor;
+  header[0].style.backgroundColor = '#232323';
+  messageDisplay.textContent = '';
+  resetButton.textContent = 'New Colors';
+};
+
+setupSquares();
