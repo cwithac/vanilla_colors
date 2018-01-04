@@ -11,6 +11,7 @@ header {
   text-align: center;
   background-color: #454545;
   margin: 0;
+  padding: 1% 0;
 }
 
 header h1 {
@@ -20,14 +21,31 @@ header h1 {
 
 nav {
     background-color: #FFFFFF;
-    height: 30px;
+    height: 40px;
     text-align: center;
     color: #232323;
 }
 
+button {
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  height: 40px;
+  font-weight: 700;
+  color: #232323;
+  font-size: inherit;
+  transition: all .3s;
+}
+
+#reset:hover, #easy-btn:hover, #med-btn:hover, #hard-btn:hover {
+  color: #FFFFFF;
+  background-color: #454545;
+  cursor: pointer;
+}
+
 #container {
   max-width: 75%;
-  margin: 0 auto;
+  margin: 5% auto;
 }
 
 .square {
@@ -37,9 +55,59 @@ nav {
   padding-bottom: 15%;
   float: left;
   margin: .6%;
+  border-radius: 50%;
+  transition: background 1s;
+  -webkit-transition: transition: background 1s;
+  -moz-transition: transition: background 1s;
+}
+
+.square:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px 1px #FFFFFF inset;
+}
+
+.disappear {
+  width: 15%;
+  padding-bottom: 15%;
+  float: left;
+  margin: .6%;
+  border-radius: 50%;
+  transition: background .7s;
+  -webkit-transition: transition: background .7s;
+  -moz-transition: transition: background .7s;
 }
 
 .selected {
   background-color: #232323;
   color: #FFFFFF;
+}
+
+#colorDisplay {
+  font-size: 150%;
+  line-height: .8;
+}
+
+#message, #clicks  {
+  display: inline-block;
+  width: 20%;
+}
+
+@media (max-width: 450px) {
+  header {
+    font-size: 50%;
+    padding: 3% 0;
+  }
+  nav {
+    height: 50px;
+  }
+  #message, #clicks  {
+    display: inline-block;
+    width: 15%;
+  }
+  button, #message {
+    font-size: x-small;
+  }
+  button {
+    height: 50px;
+  }
 }

@@ -76,6 +76,8 @@ const setupSquares = function(numSquares) {
         resetButton.textContent = 'Play Again?';
       } else {
         this.style.backgroundColor = '#232323';
+        this.classList.add('disappear');
+        this.classList.remove('square');
         messageDisplay.textContent = 'Incorrect, Try Again!';
       }
     });
