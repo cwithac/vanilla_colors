@@ -11,6 +11,7 @@ const messageDisplay = document.querySelector('#message');
 const header = document.getElementsByTagName('header');
 const resetButton = document.querySelector('#reset');
 const easyButton = document.querySelector('#easy-btn');
+const medButton = document.querySelector('#med-btn');
 const hardButton = document.querySelector('#hard-btn');
 const container = document.getElementById('container');
 const allSquares = document.querySelectorAll('.square');
@@ -25,15 +26,25 @@ resetButton.addEventListener('click', function() {
 
 easyButton.addEventListener('click', function() {
   hardButton.classList.remove('selected');
+  medButton.classList.remove('selected');
   easyButton.classList.add('selected');
   numSquares = 3;
   resetGame(numSquares);
 });
 
-hardButton.addEventListener('click', function() {
-  hardButton.classList.add('selected');
+medButton.addEventListener('click', function() {
+  hardButton.classList.remove('selected');
+  medButton.classList.add('selected');
   easyButton.classList.remove('selected');
   numSquares = 6;
+  resetGame(numSquares);
+});
+
+hardButton.addEventListener('click', function() {
+  hardButton.classList.add('selected');
+  medButton.classList.remove('selected');
+  easyButton.classList.remove('selected');
+  numSquares = 9;
   resetGame(numSquares);
 });
 
