@@ -24,5 +24,5 @@
 - Modeled after 'Color Game Project' via [Udemy: The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp)
 
 ![image](https://i.imgur.com/OiGb8xo.png)
-<br>
+<br><br>
 ![winimage](https://i.imgur.com/1teh5Jd.png)
