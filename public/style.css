@@ -38,7 +38,7 @@ button {
   outline: none;
 }
 
-#reset:hover, #easy-btn:hover, #med-btn:hover, #hard-btn:hover {
+#reset:hover, .level:hover {
   color: #FFFFFF;
   background-color: #454545;
   cursor: pointer;
@@ -91,7 +91,7 @@ button {
   width: 20%;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   header {
     font-size: 50%;
     padding: 3% 0;
