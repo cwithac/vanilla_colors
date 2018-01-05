@@ -18,6 +18,11 @@
 - User Instructions
 ```
 
-![image](https://i.imgur.com/CRk3Wz4.png)
+### Resources
+- [Favicon](http://www.favicon.cc/?action=icon&file_id=875181)
+- [Google Fonts](https://fonts.google.com/specimen/Alegreya+Sans+SC)
+- Modeled after 'Color Game Project' via [Udemy: The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp)
 
-Modeled after 'Color Game Project' via [Udemy: The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp).
+![image](https://i.imgur.com/OiGb8xo.png)
+<br>
+![winimage](https://i.imgur.com/1teh5Jd.png)
