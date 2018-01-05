@@ -5,9 +5,19 @@
 ### Technologies
 ```
 - HTML
-- CSS
+- CSS (Responsive Design)
 - JavaScript (Vanilla DOM Manipulation)
 - NPM Express Server
 ```
+
+### Future Enhancements
+```
+- Click Counter extends for multiple games
+- OOP Refactoring
+- Larger screen responsive cleanup
+- User Instructions
+```
+
+![image](https://i.imgur.com/CRk3Wz4.png)
 
 Modeled after 'Color Game Project' via [Udemy: The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp).
